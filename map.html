@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Neighborhood Map</title>
+
+</head>
+
+<body>
+    <div class="col-md-12">
+        <h1>My Neighborhood Map</h1>
+    </div>
+
+    <div class="container">
+        <div class="options-box">
+            <h4>Find your Favourite Hotel</h4>
+            <div>
+                <input id="show-listings" type="button" value="Show Listings">
+                <input id="hide-listings" type="button" value="Hide Listings">
+            </div>
+        </div>
+
+        <div id="search-bar" class="aside">
+            <p>Hotels in Uttarkannada</p>
+            <input class="search-area" id="input" type="search" placeholder="Place to search" data-bind="textInput: query" autocomplete="off"></input>
+
+            <div class="content">
+                <ul id="wikipedia-links" data-bind="template: {name:'marker', foreach:marker}">
+                </ul>
+                <script data-proofer-ignore type="text/html" id="marker">
+                    <div data-bind="visible: visible">
+                        <a href="https://en.wikipedia.org/wiki/Uttara_Kannada">UttarKannada Karnataka</a>
+                        <li data-bind="click: $root.clickHandlerFunction">
+                            <strong data-bind="text: title"></strong>
+                            <span data-bind="text: Address"></span>
+                        </li>
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+    <script type="text/javascript" src="js/knockout.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/map.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap,min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry,places&key=AIzaSyCZCl9HDIA5BBrhYBDMGb0m7YD_ThdH1Qo&v=3&callback=initMap" onerror="googleError()" async defer></script>
+
+</body>
+<link rel="stylesheet" href="css/main.min.css">
+
+</html>
